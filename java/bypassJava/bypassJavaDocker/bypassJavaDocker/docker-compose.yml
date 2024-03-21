@@ -1,0 +1,8 @@
+version: '2'
+services:
+  bypassjava:
+    build: .
+    ports:
+      - 111180:8080
+    environment:
+      - FLAG=DASCTF{xxxx}

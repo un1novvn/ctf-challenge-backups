@@ -1,0 +1,7 @@
+version: '2'
+services:
+  ezejs:
+    build: ./
+    ports:
+      - "28888:8888"
+    container_name: ezejs

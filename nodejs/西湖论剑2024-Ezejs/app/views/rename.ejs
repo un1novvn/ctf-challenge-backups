@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件重命名</title>
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <style>
+        /* 自定义样式规则，增大文件上传标签的字体大小 */
+        .custom-label {
+            font-size: 20px; /* 根据需要调整字体大小 */
+        }
+        .custom-label2 {
+            font-size: 50px; /* 根据需要调整字体大小 */
+        }
+        /* 添加渐变背景 */
+        body {
+            background: linear-gradient(to bottom, #3498db, #e52d2d); /* 渐变色范围和颜色可以根据需要调整 */
+            height: 100vh; /* 使body占满整个视窗，确保背景图片完全显示 */
+            margin: 0; /* 清除body的默认外边距 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+
+
+<center>
+    <label for="formFile" class="form-label mt-4 custom-label2">重命名文件</label>
+<form id = "renameForm" action="/rename" method="post">
+    <div class="form-group">
+        <label class="col-form-label mt-4 custom-label" for="inputDefault">旧文件名</label>
+        <input type="text" class="form-control" placeholder="oldName" id="oldName" name="oldName">
+    </div>
+    <div class="form-group">
+        <label class="col-form-label mt-4 custom-label" for="inputDefault">新文件名</label>
+        <input type="text" class="form-control" placeholder="newName" id="newName" name="newName">
+    </div>
+    <div class="form-group">
+        <label class="col-form-label mt-4 custom-label" for="inputDefault">uuid值</label>
+        <input type="text" class="form-control" placeholder="uuidInput" id="uuidInput" name="uuidInput">
+    </div>
+    <br>
+    <button type="button" class="btn btn-info" onclick="renameFile()">重命名文件</button>
+</form>
+
+
+
+</center>
+<script>
+    function renameFile() {
+        // 获取文件输入框、新文件名输入框和UUID输入框的引用
+        var oldNameInput = document.getElementById('oldName');
+        var newNameInput = document.getElementById('newName');
+        var uuidInput = document.getElementById('uuidInput');
+
+        // 获取文件、新文件名和UUID
+        var oldName = oldNameInput.value;
+        var newName = newNameInput.value;
+        var uuid = uuidInput.value;
+
+        if (oldName && newName && uuid) {
+            // 创建JSON对象
+            var jsonData = {
+                oldFileName: oldName,
+                newFileName: newName,
+                uuid: uuid
+            };
+
+            // 发送JSON数据到服务器
+            fetch('/rename', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络请求失败');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => {
+                    console.error('错误：', error);
+                });
+        } else {
+            alert(' 请输入新文件名、旧文件名和UUID。');
+        }
+    }
+</script>
+
+</body>
+</html>

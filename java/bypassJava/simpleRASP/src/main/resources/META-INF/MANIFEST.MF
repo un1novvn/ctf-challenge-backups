@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Main-Class: org.example.Main
+Premain-Class: org.example.agent.MyAgent
+Agent-Class: org.example.agent.MyAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Can-Set-Native-Method-Prefix: true

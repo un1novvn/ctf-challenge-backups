@@ -1,0 +1,11 @@
+version: '3'
+services:
+    xss_bot:
+        build: ./
+        ports:
+            - "60001:9999"
+        container_name: xss_bot
+        pids_limit: 1024
+        # cpus: 0.5
+        restart: unless-stopped
+        # privileged: true

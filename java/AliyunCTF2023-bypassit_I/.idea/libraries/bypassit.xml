@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bypassit">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bypassit1/bypassit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

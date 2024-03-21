@@ -1,0 +1,7 @@
+version: '2.0'
+services:
+  web:
+    build: ./
+    ports:
+      - "28080:8080"
+    container_name: doyouknowCC

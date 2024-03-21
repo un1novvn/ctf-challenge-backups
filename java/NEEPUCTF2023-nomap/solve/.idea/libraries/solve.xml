@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="solve">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/AbstractActionAgent.jar!/" />
+      <root url="jar://$PROJECT_DIR$/uninstall.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

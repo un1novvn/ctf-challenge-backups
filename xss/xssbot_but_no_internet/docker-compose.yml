@@ -1,0 +1,26 @@
+version: '3'
+services:
+    xss_bot:
+        build: ./
+        container_name: xss_bot
+        pids_limit: 1024
+        # cpus: 0.5
+        restart: unless-stopped
+        # privileged: true
+        networks:
+        - internal_network
+    nginx:
+        image: nginx
+        ports:
+        - "11180:9999"
+        volumes:
+        - ./nginx.conf:/etc/nginx/nginx.conf
+        networks:
+        - external_network
+        - internal_network
+
+networks:
+    external_network:
+        driver: bridge
+    internal_network:
+        driver: bridge
