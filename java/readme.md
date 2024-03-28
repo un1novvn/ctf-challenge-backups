@@ -16,5 +16,21 @@
 
     java.lang.ClassLoader.NativeLibrary#load()加载JNI绕RASP
 
+- AliyunCTF2024-chain17
+
+  - 考点：
+
+    Jdk9 module特性
+
+    hessian反序列化
+
+    h2 jdbc attack
+
+    hutool JSONObject
+
+    codeql
+
+    ClassPathXMLApplicationContext 实例化rce
+
   
 

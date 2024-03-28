@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  agent:
+    build: ./
+    container_name: chain17_agent
+    ports:
+      - '25001:5000'

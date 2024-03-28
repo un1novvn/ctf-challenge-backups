@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="/static/css/mvp.css" />
+    <% if (sitekey) { %>
+    <script
+      nonce="<%= nonce %>"
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      defer
+    ></script>
+    <% } %>
+    <style>
+      textarea {
+        width: 90%;
+        height: 3em;
+        resize: none;
+      }
+
+      header {
+        height: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Read and Share</li>
+        </ul>
+      </nav>
+    </header>
+    <main id="container">
+      <h2 id="title"></h2>
+      <hr />
+      <div id="content"></div>
+    </main>
+    <footer>
+      <form action="/report" method="post">
+        <input type="hidden" name="id" id="report-id" />
+        <input type="hidden" name="username" id="report-username" />
+        <% if (sitekey) { %>
+        <sup>Please wait for captcha being loaded</sup>
+        <div class="cf-turnstile" data-sitekey="<%= sitekey %>"></div>
+        <% } %>
+        <button type="submit">Report</button>
+      </form>
+    </footer>
+    <script nonce="<%= nonce %>" src="/static/js/share_read.js"></script>
+  </body>
+</html>

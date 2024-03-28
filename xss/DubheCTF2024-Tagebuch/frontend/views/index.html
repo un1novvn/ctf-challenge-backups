@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="/static/css/mvp.css" />
+    <style>
+      textarea {
+        width: 90%;
+        height: 3em;
+        resize: none;
+      }
+      header {
+        height: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Hello, <%= username %>!</li>
+        </ul>
+        <ul>
+          <li><a href="/share">Share</a></li>
+          <li><a href="/logout">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>New Post</h2>
+      <% if (error) { %>
+      <section>
+        <aside><blockquote><%= error %></blockquote></aside>
+      </section>
+      <% } %>
+      <form action="/write" , method="POST">
+        <label>
+          Title
+          <input type="text" name="title" placeholder="" required />
+        </label>
+        <label>
+          Content
+          <textarea name="content" placeholder="" required></textarea>
+        </label>
+        <button>POST</button>
+      </form>
+
+      <% if (notes.length > 0) { %>
+      <h2>posts</h2>
+      <ul>
+        <% iter = notes.keys(); %> <% for (const idx of iter) { %>
+        <li><a href="/read#id=<%= idx %>"><%= notes[idx].title %></a></li>
+        <% } %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>

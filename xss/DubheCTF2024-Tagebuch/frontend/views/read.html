@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="/static/css/mvp.css" />
+    <style>
+      textarea {
+        width: 90%;
+        height: 3em;
+        resize: none;
+      }
+
+      header {
+        height: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Read</li>
+        </ul>
+        <ul>
+          <li><a id="share">share</a></li>
+          <li><a href="/logout">logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="container">
+      <h2 id="title"></h2>
+      <hr />
+      <div id="content"></div>
+    </main>
+    <script nonce="<%= nonce %>" src="/static/js/read.js"></script>
+  </body>
+</html>

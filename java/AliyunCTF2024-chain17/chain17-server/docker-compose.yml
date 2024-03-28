@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  server:
+    build: ./
+    container_name: chain17_server
+    restart: always
+    ports:
+      - '25000:8080'
